@@ -35,7 +35,7 @@ def main():
             st.sidebar.header("Cell Classification Result")
             st.sidebar.subheader(f"Predicted Class: {result}")
             st.sidebar.subheader("Prediction Probability:")
-            st.sidebar.write(f"{result}: {prediction[0][0]:.4f}")
+            st.sidebar.write(f"Certainity: {((100 - (prediction[0][0]) * 100)) if prediction[0][0] < 0.5 else prediction[0][0]*100:.4f}%")
 
     elif option == "Random":
         parasitized_images = glob.glob(f"{parasitized_folder}/*.png")
